@@ -1,1 +1,80 @@
+/*+++++++++++++++++++++++++      FARE LA SPESA       ++++++++++++++++++++*/
+
 /*      LISTE       */
+
+-Dispensa
+    1 Latte (presenza = 1) (Extra = 0)
+    2 Verdure (presenza = 0) (Extra = 0)
+    3 Pollo (presenza = 1) (Extra = 0)
+    4 Uova (presenza = 0) (Extra = 0)
+    5 Burro (presenza = 1) (Extra = 0)
+    6 Frutta(presenza = 0) (Extra = 0)
+    7 Cioccolato (presenza = 0) (Extra = 1)
+    8 Patatine (presenza = 0) (Extra = 1)
+    9 Frutta secca (presenza = 0) (Extra = 1)
+    10 Crocchette Cane (presenza = 0) (Extra = 0)
+
+-Lista Spesa
+
+-Reparto supermercato x
+    x xxxxxxx presenza
+    x xxxxxxx
+    x xxxxxxx
+    x xxxxxxx
+
+-Reparto supermercato x
+    x xxxxxxx
+    x xxxxxxx
+    x xxxxxxx
+
+-Reparto supermercato x
+    x xxxxxxx
+    x xxxxxxx
+    x xxxxxxx
+    x xxxxxxx
+    x xxxxxxx
+
+-Carrello
+
+
+*********************************************
+
+/*      VARIABILI       */
+
+-"presenza" (numero tra 0 e 1)
+-Extra (numero tra 0 e 1)
+
+*********************************************
+
+/*      STEPS       */  
+
+-Arrivo in cucina
+-Mi dirigo al frigoreforo
+-Apro il frigorifero
+-Visualizza elementi Dispensa
+    -SE ("presenza" = 0)
+        -TRUE (Aggiungi a "lista spesa")
+-chiudo il frigo 
+-esco dalla cucina
+-vado in salotto
+-visualizzo portafoglio
+    -SE coupon"presente" = 0
+        -True Lo vado a prendere
+-vado alla porta di casa
+-esco
+-mi dirigo al supermercato
+-entro nel supermercato
+-prendo il "carrello"
+-Visualizzo reparto x
+    -SE (Articoli Reparto = Articolo lista spesa) AND (Articoli reparto "presenza" = 1)
+        -TRUE Aggiungi a carrello
+        -FALSE Visualizzo reparto successivo
+-Controllo articoli carrello
+    -SE (ELEMENTI CARRELLO > 5) 
+        -True (sottrai Elementi "extra"=1) fino a che non sei 5
+        _false Procedi
+-vado alla cassa
+-visualizzo totale
+-pago
+ 
+         
